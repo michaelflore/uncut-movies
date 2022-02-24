@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Link} from "react-router-dom";
 
-function NavBar() {
+function NavBar({ setActive, active }) {
 
     let links = [
         {
@@ -15,8 +15,6 @@ function NavBar() {
             title: "Add Movie"
         }
     ]
-
-    const [active, setActive] = useState(1);
 
     const handleClick = id => {
         setActive(id);

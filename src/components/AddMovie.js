@@ -1,17 +1,13 @@
 import React from 'react';
-import { useHistory } from "react-router-dom";
 
 import MovieForm from "./MovieForm";
 import { createMovie } from "../api";
 
-function AddMovie() {
-    const history = useHistory();
+function AddMovie({ setActive }) {
 
     //Passing onSubmit prop to MovieForm which then calls api
     const onSubmit =  async (data) => {
-
-        await createMovie(data);
-        history.push("/");
+        await createMovie(data).then(() => setActive(1));
     };
 
     return (
